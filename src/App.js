@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 
 const App = () => {
@@ -78,15 +78,14 @@ const App = () => {
     0,
   );
 
-  const nextSlide = () =>
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  const prevSlide = () =>
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  }, [slides.length]); // It only changes if the number of slides changes
 
   useEffect(() => {
     const timer = setInterval(nextSlide, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, [nextSlide]);
 
   return (
     <div>
