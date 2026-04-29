@@ -118,7 +118,7 @@ const App = () => {
           <h1>Fast Food Restaurant</h1>
           <p>
             Welcome to Feane Restaurant, where fresh ingredients, bold flavors,
-            and a warm atmosphere come together.
+            and a warm atmosphere come together
           </p>
           <button className="btn">Order Now</button>
         </div>
